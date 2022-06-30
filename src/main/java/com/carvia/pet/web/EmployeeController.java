@@ -16,30 +16,29 @@ public class EmployeeController {
     @Autowired
     private EmpService empService;
 
-    @PostMapping("/emp/save")
+    @PostMapping("/employee")
     public EmpDto saveEmp(@RequestBody RequestDto dto){
        return empService.saveEmp(dto);
     }
 
-    @PutMapping("emp/{empId}/update")
-    public Optional<EmpDto> updateEmp(@PathVariable Long empId, @RequestBody RequestDto dto){
-       return empService.updateEmp(empId,dto);
+    @PutMapping("employee/{employeeId}")
+    public Optional<EmpDto> updateEmp(@PathVariable Long employeeId, @RequestBody RequestDto dto){
+       return empService.updateEmp(employeeId,dto);
     }
 
-
-    @GetMapping("/emp/fetch")
+    @GetMapping("/employee")
     public List<EmpDto> getEmployees(){
         return empService.getEmp();
     }
 
-    @GetMapping("emp/{empId}")
-    public Optional<EmpDto> getEmployee(@PathVariable Long empId){
-        return empService.getEmpDetails(empId);
+    @GetMapping("employee/{employeeId}")
+    public Optional<EmpDto> getEmployee(@PathVariable Long employeeId){
+        return empService.getEmpDetails(employeeId);
     }
 
-    @DeleteMapping("emp/{empId}")
-    public void deleteEmployee(@PathVariable Long empId){
-        empService.deleteEmployee(empId);
+    @DeleteMapping("employee/{employeeId}")
+    public void deleteEmployee(@PathVariable Long employeeId){
+        empService.deleteEmployee(employeeId);
     }
 
 }
