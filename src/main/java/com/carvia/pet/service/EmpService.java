@@ -7,13 +7,15 @@ import java.util.List;
 import java.util.Optional;
 
 public interface EmpService {
-    public EmpDto saveEmp(RequestDto dto);
+    EmpDto saveEmp(RequestDto dto);
 
-    public List<EmpDto> getEmp();
+    List<EmpDto> getEmp();
 
-    public Optional<EmpDto> getEmpDetails(Long empId);
+    Optional<EmpDto> getEmpDetails(Long empId);
 
-    public void deleteEmployee(Long empId);
+    void deleteEmployee(Long empId);
 
-    public Optional<EmpDto> updateEmp(Long empId, RequestDto dto);
+    Optional<EmpDto> updateEmp(Long empId, RequestDto dto);
+
+    EmpDto getEmpByMobile(String mobile);
 }

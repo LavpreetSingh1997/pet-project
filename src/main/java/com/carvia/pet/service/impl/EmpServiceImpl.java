@@ -24,6 +24,8 @@ public class EmpServiceImpl implements EmpService {
         Employee emp=new Employee();
         emp.setName(dto.getName());
         emp.setGender(dto.getGender());
+        emp.setEmailAddress(dto.getEmailAddress());
+        emp.setMobile(dto.getMobile());
         repo.save(emp);
         return EmpDto.of(emp);
     }
@@ -50,5 +52,10 @@ public class EmpServiceImpl implements EmpService {
             employee.setGender(dto.getGender());
             return EmpDto.of(repo.save(employee));
         });
+    }
+
+    @Override
+    public EmpDto getEmpByMobile(String mobile) {
+        return repo.searchByMobile(mobile).map(employee -> EmpDto.of(employee)).orElse(null);
     }
 }

@@ -6,4 +6,6 @@ import lombok.Data;
 public class RequestDto {
     String name;
     String gender;
+    String emailAddress;
+    String mobile;
 }
