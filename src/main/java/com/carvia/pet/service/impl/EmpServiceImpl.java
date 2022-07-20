@@ -1,7 +1,7 @@
 package com.carvia.pet.service.impl;
 
 import com.carvia.pet.dto.EmpDto;
-import com.carvia.pet.model.Employee;
+import com.carvia.pet.entity.Employee;
 import com.carvia.pet.repo.EmpRepo;
 import com.carvia.pet.service.EmpService;
 import com.carvia.pet.web.dto.RequestDto;

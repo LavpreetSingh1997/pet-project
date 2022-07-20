@@ -1,8 +1,6 @@
 package com.carvia.pet.repo;
 
-import com.carvia.pet.dto.EmpDto;
-import com.carvia.pet.model.Employee;
-import org.hibernate.cfg.annotations.reflection.internal.JPAXMLOverriddenAnnotationReader;
+import com.carvia.pet.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

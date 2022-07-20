@@ -1,4 +1,4 @@
-package com.carvia.pet.model;
+package com.carvia.pet.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,5 +17,4 @@ public class Employee {
     private String gender;
     private String emailAddress;
     private String mobile;
-
 }

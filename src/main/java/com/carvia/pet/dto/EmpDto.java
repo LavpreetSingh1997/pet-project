@@ -1,6 +1,6 @@
 package com.carvia.pet.dto;
 
-import com.carvia.pet.model.Employee;
+import com.carvia.pet.entity.Employee;
 import lombok.Data;
 
 @Data
