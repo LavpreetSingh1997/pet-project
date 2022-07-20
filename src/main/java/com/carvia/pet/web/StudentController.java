@@ -5,6 +5,9 @@ import com.carvia.pet.dto.StudentRequestDto;
 import com.carvia.pet.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,8 +31,8 @@ public class StudentController {
     }
 
     @GetMapping
-    private List<StudentDto> getStudents(){
-        return studentService.getStudents();
+    private Page<StudentDto> getStudents(@PageableDefault() Pageable pageable){
+        return studentService.getStudents(pageable);
     }
 
     @GetMapping("/{studentId}")

@@ -7,8 +7,11 @@ import com.carvia.pet.repo.StudentRepo;
 import com.carvia.pet.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -28,13 +31,15 @@ public class StudentServiceImpl implements StudentService {
         student.setMobile(dto.getMobile());
         student.setEmail(dto.getEmail());
         student.setAddress(dto.getAddress());
+        student.setCreatedOn(Instant.now());
+        student.setUpdatedOn(Instant.now());
         studentRepo.save(student);
         return StudentDto.of(student);
     }
 
     @Override
-    public List<StudentDto> getStudents() {
-        return studentRepo.findAll().stream().map(StudentDto::of).collect(Collectors.toList());
+    public Page<StudentDto> getStudents(Pageable pageable) {
+        return studentRepo.findAll(pageable).map(StudentDto::of);
     }
 
     @Override
@@ -55,6 +60,7 @@ public class StudentServiceImpl implements StudentService {
             student.setMobile(dto.getMobile());
             student.setEmail(dto.getEmail());
             student.setAddress(dto.getAddress());
+            student.setUpdatedOn(Instant.now());
             return StudentDto.of(studentRepo.save(student));
         });
     }

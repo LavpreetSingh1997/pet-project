@@ -3,6 +3,8 @@ package com.carvia.pet.dto;
 import com.carvia.pet.entity.Student;
 import lombok.Data;
 
+import java.time.Instant;
+
 @Data
 public class StudentDto {
     Long id;
@@ -11,6 +13,8 @@ public class StudentDto {
     String mobile;
     String email;
     String address;
+    Instant createdOn;
+    Instant updatedOn;
 
     public static StudentDto of(Student student){
         StudentDto dto = new StudentDto();
@@ -20,6 +24,8 @@ public class StudentDto {
         dto.setMobile(student.getMobile());
         dto.setEmail(student.getEmail());
         dto.setAddress(student.getAddress());
+        dto.setCreatedOn(student.getCreatedOn());
+        dto.setUpdatedOn(student.getUpdatedOn());
         return dto;
     }
 }

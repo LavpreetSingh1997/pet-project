@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.time.Instant;
 
 @Setter
 @Getter
@@ -17,7 +18,10 @@ public class Student {
     private long id;
     private String name;
     private String gender;
+    @Column(length = 10)
     private String mobile;
     private String email;
     private String address;
+    private Instant createdOn;
+    private Instant updatedOn;
 }
