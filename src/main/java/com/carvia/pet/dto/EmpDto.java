@@ -9,6 +9,7 @@ public class EmpDto {
         String name;
         String gender;
         String mobile;
+        boolean isManager;
         String emailAddress;
 
         public static EmpDto of(Employee entity){
@@ -17,6 +18,7 @@ public class EmpDto {
             dto.setName(entity.getName());
             dto.setGender(entity.getGender());
             dto.setMobile(entity.getMobile());
+            dto.setManager(entity.isManager());
             dto.setEmailAddress(entity.getEmailAddress());
             return dto;
         }

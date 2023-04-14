@@ -16,5 +16,6 @@ public class Employee {
     private String name;
     private String gender;
     private String emailAddress;
+    private boolean isManager;
     private String mobile;
 }

@@ -58,4 +58,18 @@ public class EmpServiceImpl implements EmpService {
     public EmpDto getEmpByMobile(String mobile) {
         return repo.searchByMobile(mobile).map(employee -> EmpDto.of(employee)).orElse(null);
     }
+
+    @Override
+    public int getEmployeeCount(){
+        return repo.countEmployeeById();
+    }
+
+    @Override
+    public Optional<EmpDto> toggleManagerStatus(long employeeId){
+        return repo.findById(employeeId).map(employee -> {
+            employee.setManager(!employee.isManager());
+            return EmpDto.of(repo.save(employee));
+        });
+    }
+
 }

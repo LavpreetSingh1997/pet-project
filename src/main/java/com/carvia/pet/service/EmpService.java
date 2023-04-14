@@ -1,6 +1,7 @@
 package com.carvia.pet.service;
 
 import com.carvia.pet.dto.EmpDto;
+import com.carvia.pet.entity.Employee;
 import com.carvia.pet.web.dto.RequestDto;
 
 import java.util.List;
@@ -18,4 +19,8 @@ public interface EmpService {
     Optional<EmpDto> updateEmp(Long empId, RequestDto dto);
 
     EmpDto getEmpByMobile(String mobile);
+
+    int getEmployeeCount();
+
+    Optional<EmpDto> toggleManagerStatus(long employeeId);
 }

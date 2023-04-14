@@ -25,7 +25,7 @@ public class EmployeeController {
         return empService.saveEmp(dto);
     }
 
-    @PutMapping("employee/{employeeId}")
+    @PutMapping("/employee/{employeeId}")
     public Optional<EmpDto> updateEmp(@PathVariable Long employeeId, @RequestBody RequestDto dto) {
         return empService.updateEmp(employeeId, dto);
     }
@@ -44,14 +44,24 @@ public class EmployeeController {
         }
     }
 
-    @GetMapping("employee/{employeeId}")
+    @GetMapping("/employee/{employeeId}")
     public Optional<EmpDto> getEmployee(@PathVariable Long employeeId) {
         return empService.getEmpDetails(employeeId);
     }
 
-    @DeleteMapping("employee/{employeeId}")
+    @DeleteMapping("/employee/{employeeId}")
     public void deleteEmployee(@PathVariable Long employeeId) {
         empService.deleteEmployee(employeeId);
+    }
+
+    @GetMapping("/employee/count")
+    public int getEmployeeCount(){
+       return empService.getEmployeeCount();
+    }
+
+    @PutMapping("/employee/{employeeId}/isManager")
+    public Optional<EmpDto> toggleManagerStatus(@PathVariable Long employeeId){
+        return empService.toggleManagerStatus(employeeId);
     }
 
 }
